@@ -67,13 +67,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="alert alert-warning alert-dismissable fade show d-flex align-items-center"
-                            role="alert">
-                            <i class="fa fa-exclamation-circle"></i>
-                            &nbsp; Use this feature when necessary.
-                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                        @php
+                            $message = "Use this feature to assign permissions to a user.";
+                        @endphp
+                        <x-alerts.warning :message="$message" />
                     </div>
                 </div>
                 <div class="card">

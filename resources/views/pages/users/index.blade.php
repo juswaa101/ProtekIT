@@ -70,13 +70,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="alert alert-danger alert-dismissable fade show d-flex align-items-center"
-                            role="alert">
-                            <i class="fa fa-exclamation-circle"></i>
-                            &nbsp; Deleting a user will remove all data associated with that user.
-                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                        @php
+                            $message = "Deleting a user will remove all data associated with that user.";
+                        @endphp
+                        <x-alerts.error :message="$message" />
                     </div>
                 </div>
                 <div class="card">

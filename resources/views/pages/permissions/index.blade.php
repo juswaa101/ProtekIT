@@ -70,13 +70,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="alert alert-danger alert-dismissable fade show d-flex align-items-center"
-                            role="alert">
-                            <i class="fa fa-exclamation-circle"></i>
-                            &nbsp; Before deleting a permission, make sure that the permission is not assigned to any user.
-                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                        @php
+                            $message = 'Before deleting a permission, make sure that the permission is not assigned to any user.';
+                        @endphp
+                        <x-alerts.error :message="$message"/>
                     </div>
                 </div>
 
