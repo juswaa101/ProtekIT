@@ -162,7 +162,7 @@
                             return data.roles.map(function(role) {
                                 let displayName = role.name.charAt(0).toUpperCase() + role
                                     .name.slice(1);
-                                return `<span class="badge bg-success">${displayName}</span>`;
+                                return `<span class="badge bg-dark">${displayName}</span>`;
                             }).join(' ');
                         }
                     },
@@ -454,7 +454,7 @@
                             }).join(', '),
                             moment(data.created_at).format('MMMM D YYYY, h:mm:ss A'),
                             moment(data.updated_at).format('MMMM D YYYY, h:mm:ss A'),
-                            data.deleted_at,
+                            moment(data.deleted_at).format('MMMM D YYYY, h:mm:ss A')
                         ];
                         rows.push(row);
                     });

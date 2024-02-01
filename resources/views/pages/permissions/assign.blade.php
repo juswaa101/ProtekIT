@@ -6,7 +6,8 @@
     <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
     <style>
         #assign-permissions thead th {
@@ -68,7 +69,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         @php
-                            $message = "Use this feature to assign permissions to a user.";
+                            $message = 'Use this feature to assign permissions to a user.';
                         @endphp
                         <x-alerts.warning :message="$message" />
                     </div>
@@ -218,9 +219,8 @@
                         data: null,
                         render: function(data) {
                             return data.roles.map(function(role) {
-                                return role.name.charAt(0).toUpperCase() + role.name.slice(
-                                    1);
-                            }).join(', ')
+                                return `<span class="badge bg-dark my-1">${role.name.charAt(0).toUpperCase() + role.name.slice(1)}</span>`;
+                            }).join(' ');
                         }
                     },
                     {
@@ -379,12 +379,15 @@
                         rows.push([
                             data.name.charAt(0).toUpperCase() + data.name.slice(1),
                             data.roles.map(function(role) {
-                                return role.name.charAt(0).toUpperCase() + role.name.slice(
-                                    1);
+                                return role.name.charAt(0).toUpperCase() + role
+                                    .name.slice(
+                                        1);
                             }).join(', '),
                             data.permissions.map(function(permission) {
-                                let displayName = permission.display_name.charAt(0)
-                                    .toUpperCase() + permission.display_name.slice(1);
+                                let displayName = permission.display_name
+                                    .charAt(0)
+                                    .toUpperCase() + permission.display_name
+                                    .slice(1);
                                 return `${displayName}`;
                             }).join(', ')
                         ]);
