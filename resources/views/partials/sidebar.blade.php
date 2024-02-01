@@ -2,7 +2,15 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="{{ asset('image/sidebar-icon.png') }}" alt="">
+                @auth
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('image/sidebar-icon.png') }}" alt="">
+                    </a>
+                @else
+                    <a href="{{ route('welcome') }}">
+                        <img src="{{ asset('image/sidebar-icon.png') }}" alt="">
+                    </a>
+                @endauth
             </span>
 
             <div class="text logo-text mx-2">
