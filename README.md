@@ -15,6 +15,7 @@ PROTEKIT is a web application that provides you custom authentication that you c
 -   Table Export Excel File
 -   User Account Archiving
 -   Custom Dashboard
+-   Weekly Scheduled Deletion of Archive User Account.
 
 ## Setup
 
@@ -51,21 +52,13 @@ PROTEKIT is a web application that provides you custom authentication that you c
 
 ## Configuration
 
-### Eloquent Policies
+### Task Scheduler
 
-To configure Eloquent policies, follow these steps:
+How to run the scheduler to execute weekly deletion of archived users
 
-1. Create a new policy class:
-
-    ```bash
-    php artisan make:policy <PolicyName>
-    ```
-
-2. Define the necessary authorization methods in the policy class.
-
-3. Register the policy in the `AuthServiceProvider` class.
-
-4. Apply the policy to the desired model(s) using the `authorize` method.
+```bash
+php artisan schedule:work
+```
 
 ## Running the Project
 
