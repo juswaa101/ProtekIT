@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         @php
-                            $message = "Deleting a user will remove all data associated with that user.";
+                            $message = 'Deleting a user will remove all data associated with that user.';
                         @endphp
                         <x-alerts.error :message="$message" />
                     </div>
@@ -80,8 +80,8 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="dropdown">
-                                <button class="btn btn-dark dropdown-toggle" id="filterBtn" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button class="btn btn-dark dropdown-toggle" id="filterBtn" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope"></i> ALL
                                 </button>
                                 <ul class="dropdown-menu">
@@ -206,12 +206,20 @@
 
             $('#all').click(function() {
                 $('#filterBtn').html('<i class="fa fa-envelope"></i> ALL');
+                $('#note').html(`
+                    <i class="fa fa-exclamation-circle"></i>
+                    &nbsp; Deleting a user will remove all data associated with that user.
+                `);
                 filter = $(this).data('val');
                 usersTable.ajax.url(`/api/users?filter=${filter}`).load();
             });
 
             $('#archived').click(function() {
                 $('#filterBtn').html('<i class="fa fa-file-archive"></i> ARCHIVED');
+                $('#note').html(`
+                    <i class="fa fa-exclamation-circle"></i>
+                    &nbsp; After 7 days, the user will be permanently deleted.
+                `);
                 filter = $(this).data('val');
                 usersTable.ajax.url(`/api/users?filter=${filter}`).load();
             });
