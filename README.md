@@ -16,6 +16,7 @@ PROTEKIT is a web application that provides you custom authentication that you c
 -   User Account Archiving
 -   Custom Dashboard
 -   Weekly Scheduled Deletion of Archive User Account.
+-   System Notifications
 
 ## Setup
 
@@ -49,8 +50,34 @@ PROTEKIT is a web application that provides you custom authentication that you c
     ```bash
     php artisan db:seed
     ```
+# Configuration
 
-## Configuration
+## Notification
+
+How to setup notification
+
+Run this command to create a table for notifications:
+
+```bash
+php artisan notifications:table
+```
+
+## Queue
+
+How to setup queues
+
+Set QUEUE_CONNECTION to database in env file
+
+Run this command to create a table for queues:
+
+```bash
+php artisan queue:table
+```
+
+After run this command:
+```bash
+php artisan queue:listen
+```
 
 ### Task Scheduler
 
