@@ -69,5 +69,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/markAsReadAll', [NotificationController::class, 'markAsReadAll']);
         Route::post('/markAsRead', [NotificationController::class, 'markAsRead']);
         Route::post('/markAsUnread', [NotificationController::class, 'markAsUnread']);
+        Route::delete('/delete', [NotificationController::class, 'delete']);
     });
 });

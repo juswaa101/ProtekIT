@@ -66,4 +66,16 @@ class NotificationController extends Controller
         auth()->user()->notifications->where('id', $request->id)->markAsUnread();
         return response()->json(['message' => 'Notification marked as unread'], 200);
     }
+
+    /**
+     * Delete a specific notification for the authenticated user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    public function delete(Request $request)
+    {
+        DB::table('notifications')->where('id', $request->id)->delete();
+        return response()->json(['message' => 'Notification deleted'], 200);
+    }
 }
