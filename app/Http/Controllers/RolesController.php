@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\AssignUserNotificationJob;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -73,6 +74,14 @@ class RolesController extends Controller
         $user = User::findOrFail($request->user_id);
         try {
             $user->roles()->sync($request->roles);
+
+            dispatch(
+                new AssignUserNotificationJob(
+                    $user,
+                    'Roles updated.',
+                    'Your roles have been updated.'
+                )
+            );
 
             return response()->json([
                 'message' => 'Roles assigned successfully.',

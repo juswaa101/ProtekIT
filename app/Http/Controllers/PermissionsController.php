@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\AssignUserNotificationJob;
 use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -64,6 +65,14 @@ class PermissionsController extends Controller
         $user = User::findOrFail($request->user_id);
         try {
             $user->permissions()->sync($request->permissions);
+
+            dispatch(
+                new AssignUserNotificationJob(
+                    $user,
+                    'Permissions Updated',
+                    'Your permissions have been updated.'
+                )
+            );
 
             return response()->json([
                 'message' => 'Permissions assigned successfully.',

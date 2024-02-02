@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\UserRegisteredNotificationJob;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,9 @@ class RegisterController extends Controller
 
             // Login user
             auth()->loginUsingId($user->id);
+
+            // Send Welcome Notification to User
+            dispatch(new UserRegisteredNotificationJob($user));
 
             return redirect()->route('home');
         } catch (\Exception $e) {

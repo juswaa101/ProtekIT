@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
@@ -61,4 +62,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/api/permissions/assign', [PermissionsController::class, 'assignPermissions']);
     Route::get('/assign/permissions', [PermissionsController::class, 'assignPage']);
     Route::resource('permissions', PermissionsController::class);
+
+    Route::group(['prefix' => 'notifications'], function () {
+        Route::get('/', [NotificationController::class, 'getNotifications']);
+        Route::get('/unread', [NotificationController::class, 'getUnreadNotificationsCount']);
+        Route::post('/markAsReadAll', [NotificationController::class, 'markAsReadAll']);
+        Route::post('/markAsRead', [NotificationController::class, 'markAsRead']);
+        Route::post('/markAsUnread', [NotificationController::class, 'markAsUnread']);
+    });
 });
