@@ -16,17 +16,18 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mx-auto text-center mt-5">
-                <h1>ProtekIT</h1>
-                <p class="lead">
-                    ProtekIT is a Laravel package for authentication, automated task scheduling and privilege access
-                    security.
-                    It can be customizable and you can easily integrate this package in your application. It is easy to use.
-                    It is open source and free to use.
+            <div class="col-md-8 mx-auto text-center mt-5">
+                <h1>Welcome to ProtekIT</h1>
+                <p class="text-start lead">
+                    ProtekIT is a comprehensive Laravel package designed for authentication, automated task scheduling, and
+                    privilege access security. With its customizable features, integrating this package into your
+                    application is seamless. Whether you're managing user authentication or implementing automated tasks,
+                    ProtekIT offers simplicity and robust security. Best of all, it's open source and completely free to
+                    use.
                 </p>
             </div>
         </div>
-        <div class="container mt-5">
+        <div class="container mt-3">
             <div class="row">
                 <div class="col text-center">
                     <h1 class="text-danger">Features</h1>
@@ -52,8 +53,7 @@
                                 </h5>
                             </div>
 
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordion1">
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion1">
                                 <div class="card-body">
                                     ProtekIT provides built in authentication system. You can easily integrate this package
                                     in your
@@ -77,8 +77,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
-                                data-parent="#accordion1">
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion1">
                                 <div class="card-body">
                                     ProtekIT provides built in authorization system. You can easily integrate this package
                                     in your application. It is customizable and easy to use to implement authorization.
@@ -101,7 +100,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree"
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                 data-parent="#accordion1">
                                 <div class="card-body">
                                     ProtekIT provides built in automated task scheduling system. You can easily integrate
@@ -126,8 +125,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseFour" class="collapse show" aria-labelledby="headingFour"
-                                data-parent="#accordion1">
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion1">
                                 <div class="card-body">
                                     ProtekIT provides built in privilege access security system. You can easily integrate
                                     this package in your application. It is customizable and easy to use to implement
@@ -155,7 +153,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseFive" class="collapse show" aria-labelledby="headingFive"
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
                                 data-parent="#accordion2">
                                 <div class="card-body">
                                     ProtekIT is customizable and flexible, you can easily integrate this package in your
@@ -179,7 +177,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseSix" class="collapse show" aria-labelledby="headingSix"
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
                                 data-parent="#accordion2">
                                 <div class="card-body">
                                     ProtekIT is easy to use, no amount of sweats needed to integrate this package in your
@@ -203,7 +201,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseSeven" class="collapse show" aria-labelledby="headingSeven"
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
                                 data-parent="#accordion2">
                                 <div class="card-body">
                                     ProtekIT is open source, meaning it is accessible to everyone and you can use it for
@@ -227,7 +225,7 @@
                                     </div>
                                 </h5>
                             </div>
-                            <div id="collapseEight" class="collapse show" aria-labelledby="headingEight"
+                            <div id="collapseEight" class="collapse" aria-labelledby="headingEight"
                                 data-parent="#accordion2">
                                 <div class="card-body">
                                     ProtekIT is free to use, no amount of money needed to use this package. You can use it
@@ -239,8 +237,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 @endsection
 
