@@ -71,11 +71,11 @@ php artisan serve
 Enter this url to access:
 
 ```bash
-http://127.0.0.1:8000/login
+http://127.0.0.1:8000/
 ```
 
 or
 
 ```bash
-http://localhost/login
+http://localhost:8000/
 ```
