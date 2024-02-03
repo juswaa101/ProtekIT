@@ -29,11 +29,11 @@ class RegisterController extends Controller
             // Assign role to user
             $user->roles()->attach(2);
 
-            // Login user
-            auth()->loginUsingId($user->id);
-
             // Send Welcome Notification to User
             dispatch(new UserRegisteredNotificationJob($user));
+
+            // Login user
+            auth()->loginUsingId($user->id);
 
             return redirect()->route('home');
         } catch (\Exception $e) {
