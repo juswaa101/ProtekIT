@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\EventPlannerResource;
+use App\Jobs\EventPlannerNotificationJob;
 use App\Models\EventPlanner;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,7 @@ class EventPlannerController extends Controller
         ]);
 
         try {
-            EventPlanner::create(
+            $event_planner = EventPlanner::create(
                 [
                     'title' => $request->title,
                     'location' => $request->location,
@@ -55,6 +56,13 @@ class EventPlannerController extends Controller
                     'user_id' => auth()->user()->id
                 ]
             );
+
+            dispatch(new EventPlannerNotificationJob(
+                $event_planner,
+                'A new event - ' . $event_planner->title . ' has been created',
+                'New Event'
+            ));
+
             return response()->json(['message' => 'Event created successfully'], 200);
         } catch (\Exception $e) {
             dd($e);
