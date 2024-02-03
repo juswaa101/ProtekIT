@@ -17,6 +17,7 @@ PROTEKIT is a web application that provides you custom authentication that you c
 -   Custom Dashboard
 -   Weekly Scheduled Deletion of Archive User Account.
 -   System Notifications
+-   Event Planner
 
 ## Setup
 
