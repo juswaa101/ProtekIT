@@ -107,6 +107,15 @@
                             </div>
                         </div>
                     @endcan
+
+                    @can('view_events', App\Models\EventPlanner::class)
+                        <li class="nav-link">
+                            <a href="{{ route('events-planner.index') }}">
+                                <i class="bx bx-calendar icon"></i>
+                                <span class="text nav-text">Event Planner</span>
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             @endauth
         </div>

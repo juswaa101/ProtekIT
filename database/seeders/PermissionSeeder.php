@@ -53,5 +53,20 @@ class PermissionSeeder extends Seeder
             'permission_name' => 'deletePermission',
             'display_name' => 'Delete Permission'
         ]);
+
+        Permission::create([
+            'permission_name' => 'viewAnyEventPlanners',
+            'display_name' => 'View Event Planners'
+        ]);
+
+        Permission::create([
+            'permission_name' => 'createEventPlanners',
+            'display_name' => 'Create Event Planner'
+        ]);
+
+        Permission::create([
+            'permission_name' => 'deleteEventPlanners',
+            'display_name' => 'Delete Event Planner'
+        ]);
     }
 }

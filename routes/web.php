@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EventPlannerController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\RolesController;
@@ -71,4 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/markAsUnread', [NotificationController::class, 'markAsUnread']);
         Route::delete('/delete', [NotificationController::class, 'delete']);
     });
+
+    Route::get('/api/events-planner', [EventPlannerController::class, 'getEvents']);
+    Route::resource('events-planner', EventPlannerController::class);
 });

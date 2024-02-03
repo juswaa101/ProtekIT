@@ -64,4 +64,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
     }
+
+    /**
+     * Get all of the events for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function events()
+    {
+        return $this->hasMany(EventPlanner::class, 'user_id', 'id');
+    }
 }
