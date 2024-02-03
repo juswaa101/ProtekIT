@@ -26,11 +26,11 @@ class RegisterController extends Controller
         try {
             $user = User::create($request->except(['_token', 'password_confirmation']));
 
-            // Assign role to user
-            $user->roles()->attach(2);
-
             // Send Welcome Notification to User
             dispatch(new UserRegisteredNotificationJob($user));
+
+            // Assign role to user
+            $user->roles()->attach(2);
 
             // Login user
             auth()->loginUsingId($user->id);
