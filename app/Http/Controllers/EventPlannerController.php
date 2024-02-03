@@ -16,7 +16,7 @@ class EventPlannerController extends Controller
     public function getEvents()
     {
         $this->authorize('view_events', EventPlanner::class);
-        return EventPlannerResource::collection(EventPlanner::all());
+        return EventPlannerResource::collection(EventPlanner::with(['user'])->get());
     }
 
     /**

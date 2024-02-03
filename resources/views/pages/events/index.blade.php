@@ -108,6 +108,7 @@
                                     events = response.data.map(function(event) {
                                         return {
                                             id: event.id,
+                                            name: event.name,
                                             title: event.title,
                                             start: event.start,
                                             end: event.end,
@@ -130,7 +131,10 @@
                     eventClick: function(info) {
                         $('#showEventButtons').html('');
 
-                        $('#showEventTitle').html('Event Details');
+                        $('#showEventTitle').html(`
+                            <i class="fa fa-calendar"></i>
+                            Event Details
+                        `);
 
                         $('.deleteEvent').attr('data-id', info.event.id);
 
@@ -138,15 +142,18 @@
                         $('#showEventModal .modal-body').html(`
                             <input type="hidden" id="eventId" value="${info.event.id}">
 
-                            <label class="fw-bold">Title:</label><br/>
-                            <p>${info.event.title}</p>
-                            <label class="fw-bold">Location:</label><br/>
-                            <p>${info.event.extendedProps.location}</p>
-                            <label class="fw-bold">Description:</label>
-                            <p>${info.event.extendedProps.description}</p>
+                            <label class="fw-bold text-danger"><i class="fa fa-user"></i>&nbsp; Host:</label><br/>
+                            <p class="text-muted">${info.event.extendedProps.name}</p>
 
-                            <label class="fw-bold">Duration:</label>
-                            <p>
+                            <label class="fw-bold text-danger"><i class="fa fa-heading"></i>&nbsp; Title:</label><br/>
+                            <p class="text-muted">${info.event.title}</p>
+                            <label class="fw-bold text-danger"><i class="fa fa-location"></i>&nbsp; Location:</label><br/>
+                            <p class="text-muted">${info.event.extendedProps.location}</p>
+                            <label class="fw-bold text-danger"><i class="fa fa-circle-info"></i>&nbsp; Description:</label>
+                            <p class="text-muted">${info.event.extendedProps.description}</p>
+
+                            <label class="fw-bold text-danger"><i class="fa fa-clock"></i>&nbsp; Duration:</label>
+                            <p class="text-muted">
                                 ${moment(info.event.startStr).format('MMMM D, YYYY h:mm A')}
                                 -
                                 ${moment(info.event.endStr).format('MMMM D, YYYY h:mm A')}

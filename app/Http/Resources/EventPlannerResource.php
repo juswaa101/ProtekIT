@@ -16,6 +16,7 @@ class EventPlannerResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->user->name,
             'title' => $this->title,
             'start' => $this->start,
             'end' => $this->end,
