@@ -43,6 +43,7 @@ class UserRegisteredNotification extends Notification
             'title' => 'Welcome!',
             'message' => 'Hooray, Welcome to ProtekIT!',
             'user' => $this->user,
+            'url' => ''
         ];
     }
 }

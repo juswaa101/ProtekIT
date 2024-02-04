@@ -22,7 +22,10 @@
     <section class="home d-none" id="content">
         <div class="text">
             @auth
-                <x-notification.bell />
+                <div class="d-flex justify-content-start align-items-center">
+                    <x-notification.bell />
+                    <x-profile.profile-icon />
+                </div>
             @endauth
             @yield('content')
         </div>

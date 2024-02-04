@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EventPlannerController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/markAsRead', [NotificationController::class, 'markAsRead']);
         Route::post('/markAsUnread', [NotificationController::class, 'markAsUnread']);
         Route::delete('/delete', [NotificationController::class, 'delete']);
+    });
+
+    Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+        Route::get('/', [ProfileController::class, 'showProfile'])->name('index');
+        Route::put('/update', [ProfileController::class, 'updateProfile'])->name('update-profile');
+        Route::put('/update-password', [ProfileController::class, 'updatePassword'])
+            ->name('update-password');
     });
 
     Route::get('/api/events-planner', [EventPlannerController::class, 'getEvents']);

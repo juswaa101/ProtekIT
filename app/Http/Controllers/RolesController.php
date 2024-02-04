@@ -79,7 +79,8 @@ class RolesController extends Controller
                 new AssignUserNotificationJob(
                     $user,
                     'Roles updated.',
-                    'Your roles have been updated.'
+                    'Your roles have been updated.',
+                    route('profile.index')
                 )
             );
 

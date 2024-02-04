@@ -60,7 +60,8 @@ class EventPlannerController extends Controller
             dispatch(new EventPlannerNotificationJob(
                 $event_planner,
                 'A new event - ' . $event_planner->title . ' has been created',
-                'New Event'
+                'New Event',
+                route('events-planner.index')
             ));
 
             return response()->json(['message' => 'Event created successfully'], 200);

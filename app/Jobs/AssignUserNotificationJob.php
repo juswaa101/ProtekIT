@@ -17,15 +17,17 @@ class AssignUserNotificationJob implements ShouldQueue
     private User $user;
     private string $message;
     private string $title;
+    private string $url;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(User $user, string $title = '', string $message = '')
+    public function __construct(User $user, string $title = '', string $message = '', string $url = '/home')
     {
         $this->user = $user;
         $this->title = $title;
         $this->message = $message;
+        $this->url = $url;
     }
 
     /**
@@ -39,7 +41,8 @@ class AssignUserNotificationJob implements ShouldQueue
             new AssignUserNotification(
                 $user,
                 $this->title,
-                $this->message
+                $this->message,
+                $this->url
             )
         );
     }

@@ -1,0 +1,70 @@
+/* Add custom CSS for Facebook-style notifications */
+.notification-container {
+    max-width: 600px; /* Adjust the width according to your preference */
+    margin: auto;
+}
+
+.notification-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-header {
+    background-color: #dc3545; /* Facebook blue */
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-header h5 {
+    margin: 0;
+}
+
+.notification-body {
+    padding: 10px;
+}
+
+.notification-actions {
+    display: flex;
+    align-items: center;
+}
+
+.notification-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.notification-actions button:hover {
+    color: #000;
+}
+
+.notification-actions .dropdown-menu {
+    padding: 0;
+    border: none;
+}
+
+.notification-actions .dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: #4267b2;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.notification-actions .dropdown-menu a:hover {
+    background-color: #f6f7f9;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #888;
+}

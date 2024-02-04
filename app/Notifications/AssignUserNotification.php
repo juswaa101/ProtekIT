@@ -15,15 +15,17 @@ class AssignUserNotification extends Notification
     private User $user;
     private string $message;
     private string $title;
+    private string $url;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(User $user, string $title = '', string $message = '')
+    public function __construct(User $user, string $title = '', string $message = '', string $url = '/home')
     {
         $this->user = $user;
         $this->title = $title;
         $this->message = $message;
+        $this->url = $url;
     }
 
     /**
@@ -47,6 +49,7 @@ class AssignUserNotification extends Notification
             'title' => $this->title,
             'message' => $this->message,
             'user' => $this->user,
+            'url' => $this->url
         ];
     }
 }

@@ -23,50 +23,42 @@ function loadNotifications() {
                         let notification = JSON.parse(e.data);
 
                         $("#notification-content").append(`
-                            <div class="mt-3">
-                                <div class="card">
-                                    <div class="card-header bg-dark text-light">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <h5 class="card-title p-2"><i class="fa fa-circle-info"></i> &nbsp;${
+                            <div class="notification-card mt-2" data-notification-id="${
+                                e.id
+                            }">
+                                <div class="notification-header">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                        <div class="h5">
+                                            <i class="fa fa-circle-info"></i> &nbsp;${
                                                 notification.title
-                                            }</h5>
-                                            <button data-val="${
-                                                e.id
-                                            }" class="btn text-light deleteNotification"
-                                                data-bs-toggle="tooltip" data-bs-placement="right" title="Delete Notification"
-                                            >
-                                                <i class="fa fa-xmark"></i>
+                                            }
+                                        </div>
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v"></i>
                                             </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                ${
+                                                    notification.url
+                                                        ? `<li><a class="dropdown-item" href="${notification.url}"><i class="fa fa-eye text-danger"></i>&nbsp; View</a></li>`
+                                                        : ``
+                                                }
+                                                ${
+                                                    e.read_at
+                                                        ? `<li><button class="dropdown-item markAsUnread" data-val="${e.id}"><i class="fa fa-envelope-open text-danger"></i>&nbsp; Mark as Unread</button></li>`
+                                                        : `<li><button class="dropdown-item markAsRead" data-val="${e.id}"><i class="fa fa-envelope text-danger"></i>&nbsp; Mark as Read</button></li>`
+                                                }
+                                                <li><button class="dropdown-item deleteNotification" data-val="${e.id}"><i class="fa fa-trash text-danger"></i>&nbsp; Delete</button></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <p class="card-text">${
-                                            notification.message
-                                        }</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            ${
-                                                e.read_at
-                                                    ? `
-                                                <button data-val="${e.id}" class="btn text-danger float-end markAsUnread"
-                                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Mark as Unread"
-                                                >
-                                                    <i class="fa fa-envelope-open"></i>
-                                                </button>
-                                                `
-                                                    : `
-                                                <button data-val="${e.id}" class="btn text-secondary float-end markAsRead"
-                                                    data-bs-toggle="tooltip" data-bs-placement="right" title="Mark as Read"
-                                                >
-                                                <i class="fa fa-envelope"></i>
-                                                </button>
-                                                `
-                                            }
-                                            <small class="text-muted">
-                                                ${timeAgo(
-                                                    new Date(e.created_at)
-                                                )}
-                                            </small>
-                                        </div>
+                                </div>
+                                <div class="notification-body">
+                                    <p>${notification.message}</p>
+                                    <div class="notification-actions">
+                                        <div class="notification-time">${timeAgo(
+                                            new Date(e.created_at)
+                                        )}</div>
                                     </div>
                                 </div>
                             </div>

@@ -15,16 +15,18 @@ class EventPlannerNotification extends Notification
     private EventPlanner $eventPlanner;
     private string $message;
     private string $title;
+    private string $url;
 
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(EventPlanner $eventPlanner, string $message, string $title)
+    public function __construct(EventPlanner $eventPlanner, string $message, string $title, string $url = '/home')
     {
         $this->eventPlanner = $eventPlanner;
         $this->message = $message;
         $this->title = $title;
+        $this->url = $url;
     }
 
     /**
@@ -47,7 +49,8 @@ class EventPlannerNotification extends Notification
         return [
             'title' => $this->title,
             'message' => $this->message,
-            'user' => ''
+            'user' => '',
+            'url' => $this->url
         ];
     }
 }

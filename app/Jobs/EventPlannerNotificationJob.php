@@ -19,15 +19,17 @@ class EventPlannerNotificationJob implements ShouldQueue
     private EventPlanner $eventPlanner;
     private string $message;
     private string $title;
+    private string $url;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(EventPlanner $eventPlanner, string $message, string $title)
+    public function __construct(EventPlanner $eventPlanner, string $message, string $title, string $url = '/home')
     {
         $this->eventPlanner = $eventPlanner;
         $this->message = $message;
         $this->title = $title;
+        $this->url = $url;
     }
 
     /**
@@ -35,15 +37,18 @@ class EventPlannerNotificationJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $users = User::all();
+        $users = User::whereHas('permissions', function ($query) {
+            $query->where('permission_name', 'viewAnyEventPlanners');
+        })->get();
 
-        // Send notification to all users
+        // Send notification to users with event planner access
         $users->each(function ($user) {
             $user->notify(
                 new EventPlannerNotification(
                     $this->eventPlanner,
                     $this->message,
-                    $this->title
+                    $this->title,
+                    $this->url
                 )
             );
         });
