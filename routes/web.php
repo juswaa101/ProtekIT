@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EventPlannerController;
@@ -35,6 +36,16 @@ Route::group(['middleware' => 'guest'], function () {
         ->name('register');
     Route::post('/register', [RegisterController::class, 'register'])
         ->name('register.submit');
+
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])
+        ->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])
+        ->name('password.email');
+
+    Route::get('/reset-password/{user}', [ForgotPasswordController::class, 'showResetForm'])
+        ->name('password.reset');
+    Route::put('/reset-password', [ForgotPasswordController::class, 'updatePassword'])
+        ->name('password.update');
 });
 
 Route::group(['middleware' => 'auth'], function () {
