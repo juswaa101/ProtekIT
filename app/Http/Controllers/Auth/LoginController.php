@@ -25,10 +25,12 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->back()->with(
-            'error',
-            'The provided credentials do not match our records.'
-        );
+        return redirect()->back()
+            ->withInput($request->only('email'))
+            ->with(
+                'error',
+                'The provided credentials do not match our records.'
+            );
     }
 
     public function logout()
