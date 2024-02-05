@@ -53,6 +53,23 @@ PROTEKIT is a web application that provides you custom authentication that you c
     ```
 # Configuration
 
+## Email
+
+How to setup email sending
+
+Configure the mail settings below in .env file accordingly.
+
+```bash
+    MAIL_MAILER=smtp
+    MAIL_HOST=mailpit
+    MAIL_PORT=1025
+    MAIL_USERNAME=null
+    MAIL_PASSWORD=null
+    MAIL_ENCRYPTION=null
+    MAIL_FROM_ADDRESS="hello@example.com"
+    MAIL_FROM_NAME="${APP_NAME}"
+```
+
 ## Notification
 
 How to setup notification
