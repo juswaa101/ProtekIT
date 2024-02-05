@@ -52,8 +52,8 @@
 
     <script>
         $(window).on("load", () => {
-            var calendarEl = null;
-            var calendar = null;
+            let calendarEl = null;
+            let calendar = null;
 
             $.ajaxSetup({
                 headers: {
@@ -64,6 +64,7 @@
             setTimeout(() => {
                 calendarEl = $('#calendar')[0];
                 calendar = new FullCalendar.Calendar(calendarEl, {
+                    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
                     initialView: 'dayGridMonth',
                     height: 'auto',
                     views: {
@@ -87,12 +88,12 @@
                                 month: 'long',
                                 day: 'numeric'
                             }
-                        }
+                        },
                     },
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        right: 'listWeek,dayGridMonth,timeGridWeek,timeGridDay'
                     },
                     events: function(fetchInfo, successCallback, failureCallback) {
                         $.ajax({
